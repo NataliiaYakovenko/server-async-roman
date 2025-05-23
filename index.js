@@ -22,5 +22,18 @@ fetch("https://fakestoreapi.com/products", {
   },
   body: JSON.stringify(product),
 })
-  .then(response => response.json())
-  .then(data => console.log(data));
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+//===============================================
+
+//async,await
+async function getProduct() {
+  try {
+    const promiseResult = await fetch("https://fakestoreapi.com/products");
+    const data = await promiseResult.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+getProduct();
